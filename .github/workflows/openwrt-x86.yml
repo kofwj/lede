@@ -31,6 +31,13 @@ jobs:
         with:
           ref: master
 
+      - name: 自定义插件主题。
+        run: |
+          cd package
+          mkdir openwrt-packages
+          cd openwrt-packages
+          git clone https://github.com/Ameykyl/luci-app-koolproxyR
+          
       - name: Initialization environment
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -153,8 +160,8 @@ jobs:
           CONFIG_PACKAGE_luci-app-webadmin=y
           CONFIG_PACKAGE_luci-app-wireguard=y
           CONFIG_PACKAGE_luci-app-wrtbwmon=y
-          CONFIG_PACKAGE_luci-app-koolproxy=y
           CONFIG_PACKAGE_luci-app-ddns=y
+          CONFIG_PACKAGE_luci-app-koolproxyR=y
           EOF
 
           # LuCI主题:
